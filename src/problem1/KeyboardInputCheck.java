@@ -3,46 +3,43 @@ package problem1;
 import java.io.IOException;
 
 public class KeyboardInputCheck {
-	
+
 	public static void main(String[] args) {
-		
 		
 		try {
 			String s = KeyboardInput.readString();
-			System.out.println(s);
+			System.out.println("You've just entered:\n" + s);
 		} catch (IOException e) {
-			System.out.println("String reading error!");
+			System.err.println(e.getMessage());
+			e.printStackTrace();
 		}
-		
 		
 		try {
-			double d = KeyboardInput.readNumberAndReturnSquare();
-			System.out.println(d);
+			double square = KeyboardInput.readNumberAndReturnSquare();
+			System.out.println("The returned value is: " + square);
 		} catch (IOException e) {
-			System.out.println("Number reading error.");
-		} catch(NumberFormatException nex) {
-			System.out.println("Number has not been entered!");
+			System.err.println(e.getMessage());
+			e.printStackTrace();
 		}
-		
-		
-		try {
-			boolean even = KeyboardInput.readNumberAndCheckEven();
-			
-			if (even) System.out.println("Number is not even.");
-				else System.out.println("Number is odd.");
-		} catch (IOException e) {
-			System.out.println("Number reading error.");
-		} catch(NumberFormatException nex) {
-			System.out.println("Number has not been entered!");
-		}
-		
-		
-		try {
-			int wordCount = KeyboardInput.readSentenceAndReturnWordCount();
-			System.out.println("Word count: "+wordCount);
-		} catch (IOException e) {
-			System.out.println("Sentence reading error.");
-		}
-	}
 
+		
+		try {
+			boolean isEven = KeyboardInput.readNumberAndCheckEven();
+			if (isEven) System.out.println("The input number is even");
+			else System.out.println("The input number is odd");
+		} catch (IOException e) {
+			System.err.println(e.getMessage());
+			e.printStackTrace();
+		}
+
+		
+		try {
+			System.out.println("Number of words in the input is: " + 
+								KeyboardInput.readSentenceAndReturnWordCount());
+		} catch (IOException e) {
+			System.err.println(e.getMessage());
+			e.printStackTrace();
+		}
+		
+	}
 }

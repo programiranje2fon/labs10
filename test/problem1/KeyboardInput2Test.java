@@ -1,4 +1,4 @@
-package problem2;
+package problem1;
 
 import static org.junit.Assert.*;
 
@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import problem1.KeyboardInput;
-import problem2.KeyboardInput2;
+import problem1.KeyboardInput2;
 
 public class KeyboardInput2Test {
 

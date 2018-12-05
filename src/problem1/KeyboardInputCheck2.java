@@ -1,4 +1,4 @@
-package problem2;
+package problem1;
 
 public class KeyboardInputCheck2 {
 	

@@ -1,4 +1,4 @@
-package problem2;
+package problem1;
 
 import java.util.Scanner;
 
@@ -17,7 +17,7 @@ public class KeyboardInput2 {
 		double d = s.nextDouble();
 		return (d * d);
 	}
-
+	
 	static boolean readNumberAndCheckEven() {
 		Scanner s = new Scanner(System.in);
 		System.out.print("Enter an integer: ");

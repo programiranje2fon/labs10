@@ -9,7 +9,7 @@ public class RunTests {
 	public static void main(String[] args) {
 		
 		runTestsForClass(problem1.KeyboardInputTest.class);
-		runTestsForClass(problem2.KeyboardInput2Test.class);
+		runTestsForClass(problem1.KeyboardInput2Test.class);
 
 	}
 
