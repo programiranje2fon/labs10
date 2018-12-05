@@ -3,14 +3,10 @@ package problem1;
 import static org.junit.Assert.*;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-import problem1.KeyboardInput;
 import problem1.KeyboardInput2;
 
 public class KeyboardInput2Test {
