@@ -34,4 +34,4 @@ Add the following method to the **KeyboardInput2** class:
 
 1. Public static method **readNumberAndCheckEven**, which reads an integer from the keyboard using **Scanner**, and returns TRUE or FALSE depending on whether the number is divisible by 2. 
 
-Test the two newly created methods using the **KeyboardInputCheck2** class.
+Test the newly created method using the **KeyboardInputCheck2** class.

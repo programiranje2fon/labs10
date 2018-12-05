@@ -22,11 +22,7 @@ public class KeyboardInput2 {
 		Scanner s = new Scanner(System.in);
 		System.out.print("Enter an integer: ");
 		int i = s.nextInt();
-	
-		if (i % 2 == 0)
-			return true;
-		else
-			return false;
+		return i % 2 == 0;
 	}
 
 }

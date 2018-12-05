@@ -50,10 +50,7 @@ public class KeyboardInput {
 				isEven = num % 2 == 0;
 			} catch (NumberFormatException e) {
 				System.out.println("The provided entry is not an integer. Please try again");
-			} catch (IOException e) {
-				System.out.println(e.getMessage());
-				System.out.println("Please try again");
-			}
+			} 
 		}
 		return isEven;
 		
