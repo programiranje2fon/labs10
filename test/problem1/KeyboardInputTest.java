@@ -1,23 +1,39 @@
 package problem1;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
-
-import problem1.KeyboardInput;
 
 public class KeyboardInputTest {
 	
 	public final String SOME_INPUT_STRING = "some simulated input string";
+	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+	private final PrintStream originalOut = System.out;
+	private final InputStream originalIn = System.in;
+	
+	@Before
+	public void setUp() throws Exception {
+	    System.setOut(new PrintStream(outContent));
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		System.setOut(originalOut);
+		System.setIn(originalIn);	
+	}	
 	
 	@Test
 	public void method_readString() {
 		ByteArrayInputStream in = new ByteArrayInputStream(SOME_INPUT_STRING.getBytes());
-		InputStream sysIn = System.in;
 		System.setIn(in);
 				
 		try {
@@ -28,13 +44,11 @@ public class KeyboardInputTest {
 			assertFalse("Doslo je do greske prilikom ucitavanja stringa", true);
 		}				
 		
-		System.setIn(sysIn);		
 	}
 
 	@Test
 	public void method_readNumberReturnSquare() {
 		ByteArrayInputStream in = new ByteArrayInputStream("5".getBytes());
-		InputStream sysIn = System.in;
 		System.setIn(in);
 							
 		try {
@@ -43,14 +57,11 @@ public class KeyboardInputTest {
 		} catch (IOException e) {
 			assertFalse("Doslo je do greske prilikom ucitavanja broja", true);
 		}
-		
-		System.setIn(sysIn);		
 	}
 
 	@Test
-	public void method_readNumberAndCheckEven() {
+	public void method_readNumberAndCheckEven_even() {
 		ByteArrayInputStream in = new ByteArrayInputStream("6".getBytes());
-		InputStream sysIn = System.in;
 		System.setIn(in);
 				
 		try {
@@ -59,8 +70,11 @@ public class KeyboardInputTest {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-				
-		in = new ByteArrayInputStream("5".getBytes());
+	}
+	
+	@Test
+	public void method_readNumberAndCheckEven_odd() {
+		ByteArrayInputStream in = new ByteArrayInputStream("5".getBytes());
 		System.setIn(in);
 		
 		try {
@@ -69,15 +83,12 @@ public class KeyboardInputTest {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	
-		System.setIn(sysIn);			
 	}
 
 
 	@Test
 	public void method_readSentenceWriteWordCount() {
 		ByteArrayInputStream in = new ByteArrayInputStream("Ova recenica ima pet reci".getBytes());
-		InputStream sysIn = System.in;
 		System.setIn(in);
 		
 		try {
@@ -86,8 +97,6 @@ public class KeyboardInputTest {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	
-		System.setIn(sysIn);			
 	}
 
 }
