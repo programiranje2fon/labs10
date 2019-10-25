@@ -38,12 +38,10 @@ public class KeyboardInputTest {
 				
 		try {
 			String ucitanString = KeyboardInput.readString();
-			assertTrue("Metoda ne ucitava i vraca string ",
-					ucitanString.trim().equalsIgnoreCase(SOME_INPUT_STRING));			
+			assertTrue("The method does not read and return a String", ucitanString.trim().equalsIgnoreCase(SOME_INPUT_STRING));			
 		} catch (IOException e) {
-			assertFalse("Doslo je do greske prilikom ucitavanja stringa", true);
+			assertFalse("Error reading a String", true);
 		}				
-		
 	}
 
 	@Test
@@ -53,9 +51,9 @@ public class KeyboardInputTest {
 							
 		try {
 			double kvadrat = KeyboardInput.readNumberAndReturnSquare();
-			assertTrue("Metoda ucitajBrojIVratiKvadrat ne ucitava i ispisuje dobro kvadrat", (kvadrat == 25));			
+			assertTrue("The method does not read a number and print its square", (kvadrat == 25));			
 		} catch (IOException e) {
-			assertFalse("Doslo je do greske prilikom ucitavanja broja", true);
+			assertFalse("Error reading a number", true);
 		}
 	}
 
@@ -66,7 +64,7 @@ public class KeyboardInputTest {
 				
 		try {
 			boolean paran = KeyboardInput.readNumberAndCheckEven();
-			assertTrue("Metoda ucitajBrojIProveriParnost ne ucitava i ne proverava dobro parnost za parne brojeve", (paran == true));
+			assertTrue("The method does not read a number and return true for an even number input.", (paran == true));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -79,21 +77,20 @@ public class KeyboardInputTest {
 		
 		try {
 			boolean paran = KeyboardInput.readNumberAndCheckEven();
-			assertTrue("Metoda ucitajBrojIProveriParnost ne ucitava i ne proverava dobro parnost za neparne brojeve", (paran == false));
+			assertTrue("The method does not read a number and return true for an odd number input", (paran == false));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-
 	@Test
 	public void method_readSentenceWriteWordCount() {
-		ByteArrayInputStream in = new ByteArrayInputStream("Ova recenica ima pet reci".getBytes());
+		ByteArrayInputStream in = new ByteArrayInputStream("This sentence has five words".getBytes());
 		System.setIn(in);
 		
 		try {
 			int brojReci = KeyboardInput.readSentenceAndReturnWordCount();
-			assertTrue("Metoda ucitajRecenicuIVratiBrojReci ne broji dobro reci", (brojReci == 5));			
+			assertTrue("The method does not count word number properly", (brojReci == 5));			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

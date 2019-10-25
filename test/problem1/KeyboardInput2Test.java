@@ -18,7 +18,6 @@ public class KeyboardInput2Test {
 	private final PrintStream originalOut = System.out;
 	private final InputStream originalIn = System.in;
 
-	
 	@Before
 	public void setUp() throws Exception {
 	    System.setOut(new PrintStream(outContent));
@@ -36,7 +35,7 @@ public class KeyboardInput2Test {
 		System.setIn(in);
 
 		String ucitanString = KeyboardInput2.readAndReturnString();
-		assertTrue("Metoda ne ucitava i vraca string ", ucitanString.trim().equalsIgnoreCase(SOME_INPUT_STRING));
+		assertTrue("The method does not read and return a String", ucitanString.trim().equalsIgnoreCase(SOME_INPUT_STRING));
 	}
 
 	@Test
@@ -45,7 +44,7 @@ public class KeyboardInput2Test {
 		System.setIn(in);
 
 		double kvadrat = KeyboardInput2.readNumberAndReturnSquare();
-		assertTrue("Metoda ucitajBrojIVratiKvadrat ne ucitava i ispisuje dobro kvadrat", (kvadrat == 25));
+		assertTrue("The method does not read a number and print its square", (kvadrat == 25));
 	}
 
 	@Test
@@ -54,8 +53,7 @@ public class KeyboardInput2Test {
 		System.setIn(in);
 
 		boolean paran = KeyboardInput2.readNumberAndCheckEven();
-		assertTrue("Metoda ucitajBrojIProveriParnost ne ucitava i ne proverava dobro parnost za parne brojeve",
-				(paran == true));
+		assertTrue("The method does not read a number and return true for an even number input.", (paran == true));
 	}
 	
 	@Test
@@ -64,9 +62,7 @@ public class KeyboardInput2Test {
 		System.setIn(in);
 
 		boolean paran = KeyboardInput2.readNumberAndCheckEven();
-		assertTrue("Metoda ucitajBrojIProveriParnost ne ucitava i ne proverava dobro parnost za neparne brojeve",
-				(paran == false));
-
+		assertTrue("The method does not read a number and return true for an odd number input", (paran == false));
 	}
 
 }
